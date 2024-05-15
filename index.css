@@ -1,0 +1,16 @@
+header {
+    text-align: center;
+    background-color: aquamarine;
+    padding: 10px 2%;
+    width: 100%;
+    margin: 0px;
+    
+}
+
+.formulario {
+    background-color: bisque;
+    padding: 90px 40px;
+    text-align: center;
+    flex-direction: column;
+}
+
