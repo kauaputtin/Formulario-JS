@@ -1,39 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="index.js">
-    <title>Document</title>
+    <title>Verificação de Notas</title>
 </head>
 
 <body>
-    <header>
-        <div class="interface">
-         <h1>Formulário</h1>
-        </div>
-    </header>
+    <h1>Verificação de Notas</h1>
+    <label for="nome">Nome:</label><br>
+    <input type="text" id="nome">
+    <br><br>
+    <label for="matricula">Matrícula:</label><br>
+    <input type="text" id="matricula">
+    <br><br>
+    <label for="nota">Nota:</label><br>
+    <input type="number" id="nota">
+    <br><br><br>
+    <button onclick="verificar()">Verificar</button><br>
+    <br>
     
-    <main>
-    <section class="formulario">
-        <div class="interface">
-            <div class="flex">
-            <div class="form">
-              <Form action="#">
-                <input type="text" placeholder="Nome completo*" required>
-                <input type="text" placeholder="Email*" required>
-                <input type="submit">
+    <h1>Resultado</h1>
+    <table id="resultado">
+        <tr>
+            <th>Nome</th>
+            <th>Matrícula</th>
+            <th>Nota</th>
+            <th>Situação</th>
+        </tr>
+    </table>
 
-              </Form>
-            </div>
-            </div>
-        </div>
-    </section>
-    </main>
-   
+    <script>
+        function verificar() {
+            const nome = document.getElementById("nome").value;
+            const matricula = document.getElementById("matricula").value;
+            const nota = parseFloat(document.getElementById("nota").value);
+            const situacao = nota >= 7 ? "Aprovado" : "Reprovado";
+
+            const tabela = document.getElementById("resultado");
+            const linha = tabela.insertRow();
+            const colunaNome = linha.insertCell(0);
+            const colunaMatricula = linha.insertCell(1);
+            const colunaNota = linha.insertCell(2);
+            const colunaSituacao = linha.insertCell(3);
+
+            colunaNome.innerHTML = nome;
+            colunaMatricula.innerHTML = matricula;
+            colunaNota.innerHTML = nota;
+
+            // Adicionando cores
+            if (situacao === "Aprovado") {
+                colunaSituacao.innerHTML = `<span style="color: green;">${situacao}</span>`;
+            } else {
+                colunaSituacao.innerHTML = `<span style="color: red;">${situacao}</span>`;
+            }
+        }
+    </script>
 
 
 </body>
