@@ -5,60 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>Verificação de Notas</title>
+    <link rel="stylesheet" href="index.js">
+    <title>Formulário de notas</title>
 </head>
 
+
 <body>
-    <h1>Verificação de Notas</h1>
-    <label for="nome">Nome:</label><br>
-    <input type="text" id="nome">
-    <br><br>
-    <label for="matricula">Matrícula:</label><br>
-    <input type="text" id="matricula">
-    <br><br>
-    <label for="nota">Nota:</label><br>
-    <input type="number" id="nota">
-    <br><br><br>
-    <button onclick="verificar()">Verificar</button><br>
-    <br>
     
+    <h1>Formulário de notas</h1>
+    <form>
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome">
+        <br><br>
+        <label for="matricula">Matrícula:</label><br>
+        <input type="text" id="matricula">
+        <br><br>
+    
+        <label for="nota">Nota 1:</label><br>
+        <input type="number" id="nota1"><br>
+        <label for="nota">Nota 2:</label><br>
+        <input type="number" id="nota2">
+    </form>
+        <br><br><br>
+        <button onclick="verificar()">Verificar</button><br>
+        <br>
+        
+    
+
     <h1>Resultado</h1>
     <table id="resultado">
         <tr>
             <th>Nome</th>
             <th>Matrícula</th>
-            <th>Nota</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Média</th>
             <th>Situação</th>
         </tr>
     </table>
 
-    <script>
-        function verificar() {
-            const nome = document.getElementById("nome").value;
-            const matricula = document.getElementById("matricula").value;
-            const nota = parseFloat(document.getElementById("nota").value);
-            const situacao = nota >= 7 ? "Aprovado" : "Reprovado";
-
-            const tabela = document.getElementById("resultado");
-            const linha = tabela.insertRow();
-            const colunaNome = linha.insertCell(0);
-            const colunaMatricula = linha.insertCell(1);
-            const colunaNota = linha.insertCell(2);
-            const colunaSituacao = linha.insertCell(3);
-
-            colunaNome.innerHTML = nome;
-            colunaMatricula.innerHTML = matricula;
-            colunaNota.innerHTML = nota;
-
-            // Adicionando cores
-            if (situacao === "Aprovado") {
-                colunaSituacao.innerHTML = `<span style="color: green;">${situacao}</span>`;
-            } else {
-                colunaSituacao.innerHTML = `<span style="color: red;">${situacao}</span>`;
-            }
-        }
-    </script>
-
+    <script src="index.js"></script>
 
 </body>
 
